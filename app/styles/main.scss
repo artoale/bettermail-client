@@ -1,1 +1,52 @@
 @import "compass_twitter_bootstrap";
+@import "compass_twitter_bootstrap_responsive";
+
+.main {
+    background-color: white;
+    padding-top: 20px;
+    padding-bottom: 20px;
+    height: 100%;
+}
+
+.column-container {
+    background-color: #FBFBFB;
+    border: 1px solid #d5d5d5;
+    border-radius: 5px;
+    margin-top: 10px;
+    overflow: hidden;
+}
+.columnItem {
+    border:solid 1px #eee;
+    padding: 20px;
+}
+
+.column-box {
+     @extend .columnItem;
+
+}
+
+.column-content {
+
+    height: 640px;
+    overflow-y:scroll;
+    background-color: transparent;
+}
+.column [class*="span"] {
+    margin-left: 0;
+}
+.column-header {
+    @extend .columnItem;
+    @include background-image(linear-gradient(top, #f6f6f6 0%,#f0f0f0 100%));
+    height: 60px;
+    background-color: red;
+    border-bottom:solid 1px #ddd;
+    box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.2), 0 1px 2px rgba(0, 0, 0, 0.05);
+}
+
+.column.span3 {
+    margin-left: 0;
+    width: 25%;
+
+}
+
+
