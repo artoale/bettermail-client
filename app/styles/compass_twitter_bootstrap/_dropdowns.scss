@@ -40,8 +40,10 @@
 // ----------------------
 .dropdown-menu {
   position: absolute;
-  top: 100%;
-  left: 0;
+  // top: 100%;
+  top: 45px;
+  left: 0px;// -21px;
+
   z-index: $zindexDropdown;
   display: none; // none by default, but block on "open" of the menu
   float: left;
@@ -54,7 +56,7 @@
   border: 1px solid $dropdownBorder;
   *border-right-width: 2px;
   *border-bottom-width: 2px;
-  @include ctb-border-radius(6px);
+  @include ctb-border-radius(3px);
   @include ctb-box-shadow(0 5px 10px rgba(0,0,0,.2));
   -webkit-background-clip: padding-box;
      -moz-background-clip: padding;

@@ -1,0 +1,25 @@
+<div class="span3 column" ng-controller="SmallColumnClusterCtrl">
+    <div class="column-header span12">
+        <form class="form-inline">
+            <input type="text" ng-model="label" placeholder="Name this group ({{emails.length}})"
+            />
+            <div class="action-container">
+                <i class="icon-ok" ng-click="save()"></i>
+                <i class="icon-remove" ng-click="delete()"></i>
+            </div>
+        </form>
+    </div>
+    <div class="span12 column-content">
+        <div class="column-box" ng-class="{selected:email.selected}" ng-click="watchMail(label, email.uid)"
+        ng-repeat="email in emails | filter:query |orderBy:'-date'">
+            <div class="from" ng-class="{unseen:unseen(email)}">
+                {{email.from[0] | sender }}
+            </div>
+            <span class="removeEmail icon-remove" ng-click="removeEmail(email)">
+            </span>
+            <div class="subject">
+                {{email.subject}}
+            </div>
+        </div>
+    </div>
+</div>

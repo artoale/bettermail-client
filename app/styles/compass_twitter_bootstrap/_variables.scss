@@ -84,12 +84,12 @@ $tableBorder:                       #ddd; // table and cell border
 
 // Buttons
 // -------------------------
-$btnBackground:                     $white !default;
-$btnBackgroundHighlight:            darken($white, 10%) !default;
+$btnBackground:                     #F5F5f5; //$white !default;
+$btnBackgroundHighlight:            darken(#F5F5f5, 5%) !default;
 $btnBorder:                         #bbb !default;
 
-$btnPrimaryBackground:              $linkColor !default;
-$btnPrimaryBackgroundHighlight:     adjust-hue($btnPrimaryBackground, 20%) !default;
+$btnPrimaryBackground:              darken($selectedColor,0%) !default;
+$btnPrimaryBackgroundHighlight:     darken($btnPrimaryBackground, 10%) !default;
 
 $btnInfoBackground:                 #5bc0de !default;
 $btnInfoBackgroundHighlight:        #2f96b4 !default;
@@ -151,8 +151,8 @@ $zindexModal:             1050 !default;
 
 // Sprite icons path
 // -------------------------
-$iconSpritePath:          "glyphicons-halflings.png" !default;
-$iconWhiteSpritePath:     "glyphicons-halflings-white.png" !default;
+$iconSpritePath:          ""; //"glyphicons-halflings.png" !default;
+$iconWhiteSpritePath:     ""; //"glyphicons-halflings-white.png" !default;
 
 
 // Input placeholder text color

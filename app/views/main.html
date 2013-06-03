@@ -1,30 +1,55 @@
+<div class="row column-selector">
+    <a href="#/emails" id="logo"> <i class="icon-envelope-alt icon-whiteBettermail"></i> Bettermail</a>
+    <div class="indicators" ng-mouseout="unmark()">
+        <div ng-repeat="col in allColumns" ng-class="{mark:col.mark, active:isActive(col)}"
+        ng-click="goTo(col)" ng-mouseover="mark(col)" class="bullet">
+            <!-- -->
+            &nbsp;
+        </div>
+        <!-- <div class="active"></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div> -->
+        <span ng-click="refresh()" ng-show="boxName" id="refresh">
+            Regroup
+            <i class="icon-refresh icon-white">
+            </i>
+        </span>
+        <span ng-click="open()" ng-hide="boxName" id="openModal">
+            Add columns
+            <i class="icon-cog icon-white">
+            </i>
+        </span>
+        <span class="clearfix">
+        </span>
+    </div>
+</div>
 <div class="column-container">
     <div class="row-fluid">
-        <div class="span3 column">
-            <div class="column-header span12">COLUMN 1</div>
-            <div class="span12 column-content"><div class="column-box" ng-repeat="i in [1,2,3,4,5,6,7,8,9,10,11,12,13,14,15]">
-                    {{1}} Lorem ipsum dolor sit amet, consectetur adipisicing elit. Enim, officiis.
-                </div></div>
+        <div class="coldirective" ng-repeat="col in columns" ng-show="selectColumns(col)"
+        ng-animate="selectAnimation(col)">
+            <column type="{{col.type}}" click="watchMail" refer="col.refer">
+            </column>
         </div>
-        <div class="span3 column">
-            <div class="column-header span12">COLUMN 2</div>
-            <div class="span12 column-content">
-                <div class="column-box" ng-repeat="i in [1,2,3,4,5,6,7,8,9,10,11,12,13,14,15]">
-                    {{1}} Lorem ipsum dolor sit amet, consectetur adipisicing elit. Enim, officiis.
-                </div>
-            </div>
-        </div>
-        <div class="span3 column">
-            <div class="column-header span12">COLUMN 3</div>
-            <div class="span12 column-content"><div class="column-box" ng-repeat="i in [1,2,3,4,5,6,7,8,9,10,11,12,13,14,15]">
-                    {{1}} Lorem ipsum dolor sit amet, consectetur adipisicing elit. Enim, officiis.
-                </div></div>
-        </div>
-        <div class="span3 column">
-            <div class="column-header span12">COLUMN 4</div>
-            <div class="span12 column-content"><div class="column-box" ng-repeat="i in [1,2,3,4,5,6,7,8,9,10,11,12,13,14,15]">
-                    {{1}} Lorem ipsum dolor sit amet, consectetur adipisicing elit. Enim, officiis.
-                </div></div>
-        </div>
+    </div>
+</div>
+<div modal="shouldBeOpen" close="close()" options="opts">
+    <div class="modal-header">
+        <h4>
+            Select a folder to be add as column
+        </h4>
+    </div>
+    <div class="modal-body">
+        <span ng-hide="availableColumns.length > 0">No more folders to add</span>
+        <select ng-model="selected" ng-show="availableColumns.length > 0">
+            <option ng-repeat="col in availableColumns">{{col.refer}}</option>
+        </select>
+        <span class="btn" id="addCol" ng-click="addCol(selected)" ng-show="availableColumns.length > 0"> Add</span>
+    </div>
+    <div class="modal-footer">
+        <button class="btn btn-primary cancel" ng-click="close()">
+            Close
+        </button>
     </div>
 </div>

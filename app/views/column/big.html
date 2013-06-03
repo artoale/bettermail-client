@@ -1,0 +1,14 @@
+<div class="span9 column" ng-controller="BigColumnCtrl">
+    <div class="span12 mail-header" >
+        <div class="btn" ng-click="home()"><i class="icon-remove"></i></div>
+    </div>
+    <div class="email">
+        <div class="sender">
+            <div class="picture"></div>
+            <div class="fromAddr">{{email.from[0].name}} &lt;{{email.from[0].address}}&gt;</div>
+            <div class="date">{{email.date | date:'MMM d, y - h:mm a' }}</div>
+        </div>
+        <div class="emailBody" ng-bind-html-unsafe="body">
+        </div>
+    </div>
+</div>

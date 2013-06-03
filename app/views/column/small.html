@@ -1,0 +1,33 @@
+<div class="span3 column" ng-controller="SmallColumnCtrl">
+    <div class="column-header span12">
+        <div class="dropdown">
+            <div class="icon-cog dropdown-toggle" data-toggle="dropdown">
+            </div>
+            <ul class="dropdown-menu">
+                <li><a href="#/clusters/{{label}}">Split this folder</a></li>
+                <li><a href="#/emails" ng-click="delCol(label)">Remove this label from view</a></li>
+            </ul>
+        </div>
+        &nbsp;{{label}}
+        <span class="searchbox">
+            <div class="input-append">
+                <input type="text" ng-model="query" ng-class="{visible:inputVisible}"
+                />
+                <span class="add-on" ng-click="inputVisible = !inputVisible">
+                    <i class="icon-search">
+                    </i>
+                </span>
+            </div>
+    </div>
+    <div class="span12 column-content">
+        <div class="column-box" ng-class="{selected:email.selected}" ng-click="watchMail(label, email.messageId)"
+        ng-repeat="email in emails | filter:query |orderBy:'-date'">
+            <div class="from" ng-class="{unseen:unseen(email)}">
+                {{email.from[0] | sender }}
+            </div>
+            <div class="subject">
+                {{email.subject}}
+            </div>
+        </div>
+    </div>
+</div>

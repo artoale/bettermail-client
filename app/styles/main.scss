@@ -1,28 +1,229 @@
-@import "compass_twitter_bootstrap";
-@import "compass_twitter_bootstrap_responsive";
+$selectedColor: #FFA200;
+$colorCog: black;
+@import "compass_twitter_bootstrap_awesome";
+// @import "compass_twitter_bootstrap_responsive";
+@import "compass/css3/transition";
+body {
+    background-color: #444444;
+}
+#logo {
+    float:left;
+    font-size: 1.5em;
+    margin-left: 28px;
+    cursor: pointer;
+    -webkit-transition: color 1s ease;
+    color: rgba(255, 255, 255, 0.25);
+    i {
+        -webkit-transition: all 1s ease;
+        display: inline-block;
+    }
+}
+#logo:hover,#logo:active,#logo:focus {
+    text-decoration: none;
+    color: rgba(255, 255, 255, 0.85);
+    i {
+        color:  darken($linkColor,5%);
+    }
+};
+#refresh, #openModal {
+    float:right;
+    font-size: 1.5em;
+    cursor: pointer;
+    -webkit-transition: all 1s ease;
+    color: rgba(255, 255, 255, 0.25);
+    i, .icon-cog {
+        color: rgba(255, 255, 255, 0.25);
+        -webkit-transition: -webkit-transform 1s ease;
+        display: inline-block;
+
+    }
+}
+
+#addCol {
+    margin-top: -10px;
+}
+#refresh:hover, #openModal:hover {
+    color: rgba(255, 255, 255, 0.85);
+    i, .icon-cog {
+        -webkit-transform: rotate(360deg);
+        color: $btnSuccessBackground;
+        // color: darken($selectedColor,5%);
+    }
+};
+
+// #openModal {
+//     @extend #refresh;
+//     i {
+//         -webkit-transition: -webkit-transform 1s ease;
+//         display: inline-block;
+
+//     }
+// }
+// #openModal:hover {
+//     @extend #refresh:hover;
+//     i {
+//         -webkit-transform: rotate(360deg);
+//         color: $btnSuccessBackground;
+//         // color: darken($selectedColor,5%);
+//     }
+// }
 
 .main {
-    background-color: white;
+
     padding-top: 20px;
     padding-bottom: 20px;
     height: 100%;
 }
 
+.form-inline .action-container{
+    display: inline-block;
+
+
+    color: rgba($colorCog,0.2);
+    i {
+        font-size: 1.2em;
+        margin-top: 5px;
+        margin-left: 15px;
+        cursor: pointer;
+    }
+
+}
+.form-inline .action-container .icon-ok:hover {
+    color: $btnSuccessBackground;
+};
+.form-inline .action-container .icon-remove:hover {
+    color: $btnDangerBackground;
+};
+$headerHeight:60px;
+$emailBorderColor: #eee;
+$indicatorRadius: 7px ;
 .column-container {
     background-color: #FBFBFB;
-    border: 1px solid #d5d5d5;
+    border: 1px solid #666;
     border-radius: 5px;
     margin-top: 10px;
-    overflow: hidden;
+    height: 700px;
+    overflow:hidden;
+    // overflow: hidden;
 }
 .columnItem {
-    border:solid 1px #eee;
+    border-top:solid 0px #dfdfdf;
+    border-bottom:solid 1px #dfdfdf;
+    // border-left:solid 1px #dfdfdf;
+    // border-right:solid 1px #dfdfdf;
     padding: 20px;
 }
 
 .column-box {
-     @extend .columnItem;
+    @extend .columnItem;
+    height: 40px;
+    font-size: 0.8em;
+    cursor: pointer;
+    padding: 15px;
+    .from{
+        font-size: 1.09em;
+        float:left;
+        font-weight: bold;
+    }
+    .removeEmail{
+        float:right;
+        // font-family: 'Sigmar One', cursive;
+        // font-size: bold;
+        font-size: 1.3em;
+        cursor: pointer;
+        color:rgba($btnDangerBackground,0.15);
+    }
+    .removeEmail:hover{
 
+        color:rgba($btnDangerBackground,0.75);
+    }
+    .from.unseen {
+        color:darken($selectedColor,5%);
+    }
+    .subject{
+        clear:both;
+        font-size: 0.9em;
+    }
+}
+
+.column-box.unseen {
+    color: $selectedColor;
+    .from{
+        color: $selectedColor;
+    }
+
+}
+
+.column-box.selected {
+
+     background-color: darken($selectedColor,5%);
+     border:solid 1px darken($selectedColor,15%);;
+     color: white;
+     // font-weight: bold;
+     .from{
+        color: white;
+    }
+
+}
+
+.column.span9 {
+    background-color: #f0f0f0;
+    width: 75%;
+    height: 700px;
+    overflow-y:scroll;
+    border-left: 1px solid #DDD;
+}
+
+.email {
+    margin: 40px;
+    margin-top: $headerHeight ;
+    border: solid 1px #DDD;
+    .sender {
+        @extend .span12;
+        background-color: white;
+        border: solid 1px $emailBorderColor;
+        padding:20px;
+        width: 100%;
+        float:left;
+        box-sizing:border-box;
+        .picture {
+            float:left;
+            width: 30px;
+            height: 30px;
+            background-color: #777;
+
+        }
+        .fromAddr {
+            // @extend .span10;
+            height: 30px;
+            line-height: 30px;
+            float:left;
+            width: auto;
+            margin-left: 20px;
+
+        }
+        .date {
+            float:right;
+            line-height: 30px;
+        }
+    }
+    .emailBody {
+        clear:both;
+        box-sizing:border-box;
+        width: 100%;
+        margin: 0px;
+        padding-top:20px;
+        padding: 20px;
+        border: solid 1px $emailBorderColor;
+        border-top:none;
+        background-color: white;
+    }
+}
+
+.column.span6 {
+    width: 50%;
+    height: 700px;
+    background-color: rgb(225,220,216);
 }
 
 .column-content {
@@ -30,23 +231,143 @@
     height: 640px;
     overflow-y:scroll;
     background-color: transparent;
+    border-left:solid 1px #dfdfdf;
 }
-.column [class*="span"] {
+.column [class*="span"], .column[class*="span"] {
     margin-left: 0;
+}
+
+.mail-header {
+    height: $headerHeight;
+    padding: 15px 40px;
+    text-align: right;
+}
+.column-selector {
+    text-align: center;
+    color: #DDD;
+}
+.indicators{
+    margin: auto;
+}
+.indicators div.bullet {
+    display: inline-block;
+    width: $indicatorRadius * 2;
+    height: $indicatorRadius * 2;
+    margin-right: $indicatorRadius;
+    text-indent: -999px;
+    background-color: #ccc;
+    background-color: rgba(255, 255, 255, 0.25);
+    border-radius: $indicatorRadius;
+}
+.indicators div.bullet:hover, .indicators div.bullet.active:hover,.indicators div.bullet.mark, .indicators div.bullet.active.mark{
+    cursor: pointer;
+    background-color: $selectedColor;
+
+}
+div.dropdown {
+    display: inline-block;
+}
+.indicator {
+    cursor: auto;
+}
+.indicators div.active {
+    background-color: rgba($selectedColor,0.65);
 }
 .column-header {
     @extend .columnItem;
     @include background-image(linear-gradient(top, #f6f6f6 0%,#f0f0f0 100%));
-    height: 60px;
+    height: $headerHeight;
+    box-shadow: inset 0 0 5px 0 black;
+    line-height: $headerHeight;
+    // box-shadow: 50px 50px 50px rgba(0, 0, 0, 1);
+    padding-top: 0;
+    padding-bottom: 0;
+    font-size: 1.2em;
     background-color: red;
     border-bottom:solid 1px #ddd;
+    border-left: solid 1px #ddd;
+    border-right: solid 1px #fff;
     box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.2), 0 1px 2px rgba(0, 0, 0, 0.05);
-}
+    .searchbox{
+        float:right;
+        box-sizing:border-box;
+        margin-top: 14px;
+        input {
+            width: 5px;
 
+
+            @include transition-property(width,border,box-shadow);
+            // margin-right: 5px;
+            // border-radius: 30px;
+        }
+        input:focus {
+            width: 90px;
+        };
+        // input.visible {
+        //     width: 90px;
+        // }
+    }
+}
+.icon-cog {
+
+    color: rgba($colorCog,0.2);
+    cursor: pointer;
+}
+.icon-cog:hover {
+
+    color: darken($linkColor,5%);
+}
 .column.span3 {
     margin-left: 0;
     width: 25%;
 
+}
+
+.coldirective{
+    width: 100%;
+}
+
+
+// .slide-setup {
+//     @include transition-duration(.9s);
+//     @include transition-property(all);
+//      /* The animation preparation code */
+// }
+
+.slideLeft-hide-setup {
+    @extend .slide-setup;
+    margin-left:0;
+    position: relative
+}
+
+.slideLeft-hide-start {
+    margin-left:-100%;
+}
+.slideLeft-show-setup {
+    @extend .slide-setup;
+    margin-left:-500%;
+}
+.slideLeft-show-start, {
+    margin-left:0;
+}
+
+
+
+.slideRight-hide-setup {
+    @extend .slide-setup;
+
+    margin-left:25%;
+}
+
+.slideRight-show-setup {
+    @extend .slide-setup;
+    margin-left:100%;
+}
+.slideRight-hide-start, {
+     margin-left:100%;
+}
+.slideRight-show-start {
+    margin-left:25%;
 }
 
 

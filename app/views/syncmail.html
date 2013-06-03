@@ -1,0 +1,16 @@
+<div class="row">
+    <div class="span2 btn" ng-click="syncEurecom()">
+        Sync
+    </div>
+    <div class="span3">
+        <select ng-model="labelToSync" ng-options="l.name for l in labels">
+        </select>
+    </div>
+
+</div>
+<div class="row">
+    <div class="span12 progress progress-striped" ng-class="{active: (progress>0 && progress < 100)}">
+        <div class="bar" style="width: {{progress}}%;">
+        </div>
+    </div>
+</div>

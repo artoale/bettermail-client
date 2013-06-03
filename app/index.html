@@ -10,6 +10,8 @@
     <meta name="description" content="">
     <meta name="viewport" content="width=device-width">
     <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
+    <link href='http://fonts.googleapis.com/css?family=Sigmar+One' rel='stylesheet' type='text/css'>
+    <!-- <link href="//netdna.bootstrapcdn.com/font-awesome/3.1.1/css/font-awesome.css" rel="stylesheet"> -->
     <link rel="stylesheet" href="styles/main.css">
   </head>
   <body ng-app="bettermailApp">
@@ -25,14 +27,27 @@
     <!-- Add your site or application content here -->
     <div class="container-fluid main" ng-view></div>
 
-    <script src="components/angular/angular.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.1.4/angular.js"></script>
     <script src="components/angular-resource/angular-resource.js"></script>
-    <script src="components/angular-cookies/angular-cookies.js"></script>
     <script src="components/angular-sanitize/angular-sanitize.js"></script>
+    <script src="components/angular-cookies/angular-cookies.js"></script>
+    <script src="components/bootstrap-custom/ui-bootstrap-custom-tpls-0.4.0-SNAPSHOT.js"></script>
 
     <!-- build:js scripts/scripts.js -->
     <script src="scripts/app.js"></script>
     <script src="scripts/controllers/main.js"></script>
+    <script src="scripts/directives/column.js"></script>
+    <script src="scripts/controllers/smallColumn.js"></script>
+    <script src="scripts/services/imap.js"></script>
+    <script src="scripts/controllers/bigColumn.js"></script>
+    <script src="scripts/services/mailCache.js"></script>
+    <script src="scripts/services/idb.js"></script>
+    <script src="scripts/controllers/labels.js"></script>
+    <script src="scripts/controllers/syncmail.js"></script>
+    <script src="scripts/filters/sender.js"></script>
+    <script src="scripts/controllers/cluster.js"></script>
+    <script src="scripts/controllers/SmallColumnCluster.js"></script>
+    <script src="scripts/services/Cluster.js"></script>
     <!-- endbuild -->
 
     <!-- Google Analytics: change UA-XXXXX-X to be your site's ID. -->
